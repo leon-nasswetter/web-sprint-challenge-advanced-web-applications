@@ -6,9 +6,8 @@ import { axiosWithAuth } from "../helpers/axiosWithAuth";
 const initialUser = {
   credentials: {
     username: "",
-    password: "",
-  },
-  error: "",
+    password: ""
+  }
 };
 
 const Login = () => {
