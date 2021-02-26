@@ -4,10 +4,15 @@ import BubblePage from "./BubblePage";
 
 test("Renders BubblePage without errors", () => {
   // Finish this test
+  render(<BubblePage />);
 });
 
 test("Fetches data and renders the bubbles on mounting", () => {
-  // Finish this test
+  render(<BubblePage />);
+  let findColor = screen.findByText(/aliceblue/i);
+  let findColorAnother = screen.findByText(/softpink/i);
+  expect(findColor).toBeTruthy();
+  expect(findColorAnother).toBeTruthy();
 });
 
 //Task List
