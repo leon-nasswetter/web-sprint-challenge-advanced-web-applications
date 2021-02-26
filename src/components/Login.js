@@ -16,6 +16,7 @@ const Login = () => {
   // when you have handled the token, navigate to the BubblePage route
 
   const [user, setUser] = useState(initialUser);
+  const [error, setError] = useState("")
   const history = useHistory();
 
   useEffect(() => {
@@ -45,8 +46,7 @@ const Login = () => {
       credentials: {
         ...user.credentials,
         [e.target.name]: e.target.value,
-      },
-      error: "",
+      }
     });
   };
 
@@ -59,7 +59,7 @@ const Login = () => {
         localStorage.setItem("token", res.data.payload);
         history.push("/bubbles-page");
       })
-      .catch((err) => setUser({ error: err }));
+      .catch((err) => setError("Username or Password not valid"));
   };
 
   return (
@@ -86,7 +86,8 @@ const Login = () => {
             onChange={handleChange}
           />
         </label>
-        <button>Submit</button>
+        <button>Login</button>
+        {error !== "" ? <p>{error}</p> : ""}
       </form>
     </>
   );
