@@ -56,7 +56,7 @@ const Login = () => {
       .post("http://localhost:5000/api/login", user.credentials)
       .then((res) => {
         console.log(res);
-        localStorage.setItem("token", JSON.stringify(res.data.payload));
+        localStorage.setItem("token", res.data.payload);
         history.push("/bubbles-page");
       })
       .catch((err) => setUser({ error: err }));
